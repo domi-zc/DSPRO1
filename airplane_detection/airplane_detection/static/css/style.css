@@ -1,0 +1,222 @@
+:root {
+  --dark-gray: #444;
+  --light-gray: #aaa;
+}
+/* Firefox */
+html {
+  scrollbar-width: none;
+}
+/* IE and Edge */
+body {
+  -ms-overflow-style: none;
+}
+/* Chrome */
+body::-webkit-scrollbar,
+body::-webkit-scrollbar-button {
+  display: none;
+}
+body {
+  color: var(--dark-gray);
+  font-family: "Source Sans 3", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: normal;
+  letter-spacing: 1.5px;
+  margin: 0;
+}
+header {
+  backdrop-filter: blur(7.5px);
+  background-color: #f1f1f199;
+  border-bottom: 2px solid #ddd;
+  height: 80px;
+  left: 0;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 999;
+}
+header img {
+  left: 0;
+  max-height: 70px;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  transition: 0.4s ease-out;
+  /*transition: 0.25s cubic-bezier(0.24, 0.21, 0.16, 0.75);*/
+}
+main {
+  height: 100%;
+  padding-bottom: 70px;
+}
+h1 {
+  font-size: 50px;
+  font-weight: bolder;
+  margin-bottom: 35px;
+}
+h2 {
+  font-size: 35px;
+  font-weight: 300;
+  margin-bottom: 25px;
+}
+p {
+  font-size: 18px;
+  margin: 0;
+}
+img {
+  border-radius: 10px;
+  max-height: 100%;
+  max-width: 100%;
+}
+button {
+  border: none;
+  border-radius: 20px;
+  font-size: 20px;
+  font-weight: 500;
+  letter-spacing: 1px;
+  max-width: 400px;
+  min-width: fit-content;
+  outline: none;
+  padding: 18px 0;
+  text-align: center;
+  transition: 0.3s ease-out;
+  width: 80%;
+}
+button.ap-active:hover {
+  box-shadow: 4px 4px 4px 0 var(--light-gray);
+  transform: scale(1.1);
+}
+bold {
+  font-weight: bolder;
+}
+footer {
+  background-color: #f1f1f1;
+  border-top: 2px solid #ddd;
+  padding: 70px 0;
+}
+.ap-instruction-box {
+  align-items: center;
+  display: flex;
+  margin: 80px 0 0 0;
+  min-height: calc(100vh - 80px);
+}
+.ap-upload-file-input {
+  display: none;
+}
+.ap-upload-file-label {
+  background-color: #fff;
+  border: 2px solid var(--light-gray);
+  border-radius: 20px;
+  color: var(--dark-gray);
+  content: "Upload Image";
+  cursor: pointer;
+  display: inline-block;
+  font-size: 20px;
+  font-weight: 500;
+  letter-spacing: 1px;
+  max-width: 400px;
+  min-width: fit-content;
+  outline: none;
+  padding: 18px 0;
+  text-align: center;
+  transition: 0.3s ease-out;
+  width: 80%;
+}
+.ap-upload-file-label:hover {
+  box-shadow: 4px 4px 4px 0 var(--light-gray);
+  transform: scale(1.1);
+}
+.ap-upload-file-label.ap-active {
+  background-color: var(--dark-gray);
+  border: 2px solid #0000;
+  color: #fff;
+}
+.ap-start-process-btn {
+  background-color: #fff;
+  border: 2px solid var(--light-gray);
+  color: var(--dark-gray);
+}
+.ap-start-process-btn.ap-active {
+  background-color: var(--dark-gray);
+  border: 2px solid #0000;
+  color: #fff;
+}
+.ap-output-box {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 80px 0 0 0;
+  min-height: calc(100vh - 80px);
+}
+.ap-output-image-comparison {
+  width: 100%;
+}
+.ap-compare-image {
+  --pos: 50%;
+  margin: 40px auto;
+  position: relative;
+  user-select: none;
+}
+.ap-compare-image img {
+  height: 100%;
+  inset: 0;
+  object-fit: cover;
+  position: absolute;
+  width: 100%;
+}
+.ap-compare-image > img:nth-child(2) {
+  clip-path: inset(0 calc(100% - var(--pos)) 0 0);
+}
+.ap-compare-image-slider {
+  background-color: #fff;
+  inset: 0 auto 0 0;
+  left: var(--pos);
+  position: absolute;
+  transform: translateX(-50%);
+  width: 2px;
+}
+.ap-compare-image-slider::before {
+  background-color: #fff;
+  border-radius: 50%;
+  box-shadow: 0 0 0 0.02px #0005;
+  content: "";
+  cursor: pointer;
+  height: 35px;
+  left: 50%;
+  position: absolute;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 35px;
+}
+.ap-compare-image-slider::after {
+  background-image: url("/static/image/arrow-left-right.svg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+  content: "";
+  height: 28px;
+  left: 50%;
+  pointer-events: none;
+  position: absolute;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 28px;
+  z-index: 2;
+}
+.ap-output-image-information p {
+  font-size: 25px;
+}
+.ap-output-image-information svg {
+  cursor: pointer;
+  transition: .3s ease-out;
+  width: 40px;
+}
+.ap-output-image-information svg:hover {
+  transform: scale(1.1);
+}
+.ap-footer-icon img {
+  width: 45px;
+}
+@media only screen and (max-width: 1200px) {
+  .ap-output-box {
+    margin: 0;
+    min-height: inherit;
+  }
+}

@@ -1,2 +1,20 @@
 images
 .DS_Store
+
+# Python version
+.python-version
+
+# venv
+django-ad-venv/
+
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+
+# SQLite
+*.sqlite3
+
+# Env/Secrets
+.env
