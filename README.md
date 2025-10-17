@@ -28,8 +28,8 @@ pyenv local 3.13.0
 python -V  # sollte "Python 3.13.0" anzeigen
 
 # Virtuelle Umgebung anlegen & aktivieren
-python -m venv django-ad-venv
-source django-ad-venv/bin/activate
+python -m venv dspro1_env
+source dspro1_env/bin/activate
 
 # Dependencies installieren
 python -m pip install --upgrade pip
@@ -55,15 +55,15 @@ python airplane_detection/manage.py runserver
 python -V  # sollte "Python 3.13.0" anzeigen
 
 # Virtuelle Umgebung erstellen
-python -m venv django-ad-venv
+python -m venv dspro1_env
 
 # Aktivieren
-.\django-ad-venv\Scripts\Activate.ps1
+.\dspro1_env\Scripts\Activate.ps1
 
 # Abhängigkeiten installieren
 python -m pip install --upgrade pip
 pip install -r requirements.txt
 
 # Server starten
-python airplane_detection/manage.py runserver
+python airplane_detection\manage.py runserver
 ```

@@ -4,7 +4,7 @@
 .python-version
 
 # venv
-django-ad-venv/
+dspro1_env/
 
 # Python
 __pycache__/
