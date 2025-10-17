@@ -20,8 +20,6 @@ Es dient als **One-Pager**, um Bilder hochzuladen, zu verarbeiten und direkt wie
 #### Linux & macOS
 
 ```bash
-cd airplane-detection
-
 # pyenv verwenden
 pyenv install -s 3.13.0
 pyenv local 3.13.0
@@ -38,7 +36,7 @@ python -m pip install --upgrade pip
 pip install -r requirements.txt
 
 # Server starten
-python manage.py runserver
+python airplane_detection/manage.py runserver
 ```
 
 ---
@@ -46,8 +44,6 @@ python manage.py runserver
 #### Windows (PowerShell)
 
 ```bash
-cd airplane-detection
-
 # Stelle sicher, dass Python 3.13.0 installiert ist
 # (manuell von https://www.python.org/downloads/ herunterladen und installieren)
 
@@ -69,5 +65,5 @@ python -m pip install --upgrade pip
 pip install -r requirements.txt
 
 # Server starten
-python manage.py runserver
+python airplane_detection/manage.py runserver
 ```
