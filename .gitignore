@@ -22,3 +22,9 @@ __pycache__/
 images
 Dataset/
 dataset/
+
+# Outputs
+runs/
+
+# Models
+*.pt
