@@ -3,6 +3,8 @@ from pathlib import Path
 BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = "change-me"
 DEBUG = True
+# Ausserhalb der Django-App mit "BASE_DIR.parent"
+MODEL_PATH = (BASE_DIR.parent / "model" / "first-model.pt").resolve()
 
 ALLOWED_HOSTS = []
 

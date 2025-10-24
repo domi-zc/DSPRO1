@@ -151,6 +151,7 @@ footer {
 .ap-compare-image {
   --pos: 50%;
   margin: 40px auto;
+  max-height: calc(80vh - 80px);
   position: relative;
   user-select: none;
 }
