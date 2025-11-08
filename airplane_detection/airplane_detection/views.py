@@ -8,7 +8,6 @@ import numpy as np
 import cv2
 
 from ultralytics import YOLO
-from pathlib import Path
 
 MODEL = YOLO(str(settings.MODEL_PATH))
 
