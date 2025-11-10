@@ -6,6 +6,7 @@ from django.conf import settings
 import base64
 import numpy as np
 import cv2
+import os.path
 
 from ultralytics import YOLO
 
@@ -24,6 +25,11 @@ def index(request: HttpRequest):
             content_type = getattr(uploaded_image, "content_type", "image/jpeg")
             image_bytes = uploaded_image.read()
             front_image_url = f"data:{content_type};base64," + base64.b64encode(image_bytes).decode("utf-8")
+
+            # Bildnamen generieren falls heruntergeladen wird
+            original_name = uploaded_image.name
+            original_stem = os.path.splitext(original_name)[0]
+            download_filename = f"{original_stem}-processed.png"
 
             # OpenCV-Decoding
             arr = np.frombuffer(image_bytes, dtype=np.uint8)
@@ -57,6 +63,7 @@ def index(request: HttpRequest):
                         "front_image_url": front_image_url,
                         "back_image_url": back_image_url,
                         "plane_count": plane_count,
+                        "download_filename": download_filename,
                     })
 
     return render(request, "index.html", context)
