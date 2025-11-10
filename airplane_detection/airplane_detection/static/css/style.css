@@ -1,6 +1,8 @@
 :root {
-  --dark-gray: #444;
+  --main-black: #000;
   --light-gray: #aaa;
+  --swiss-air-red: #E60005;
+  --light-red: #FF4043;
 }
 /* Firefox */
 html {
@@ -16,7 +18,7 @@ body::-webkit-scrollbar-button {
   display: none;
 }
 body {
-  color: var(--dark-gray);
+  color: var(--main-black);
   font-family: "Source Sans 3", sans-serif;
   font-optical-sizing: auto;
   font-weight: normal;
@@ -34,31 +36,34 @@ header {
   width: 100%;
   z-index: 999;
 }
-header img {
+header svg {
+  height: 70px;
   left: 0;
-  max-height: 70px;
+  padding: 0 2.5px;
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
   transition: 0.4s ease-out;
-  /*transition: 0.25s cubic-bezier(0.24, 0.21, 0.16, 0.75);*/
+  width: 70px;
 }
 main {
   height: 100%;
   padding-bottom: 70px;
 }
 h1 {
+  color: var(--swiss-air-red);
   font-size: 50px;
   font-weight: bolder;
-  margin-bottom: 35px;
+  margin-bottom: 15px;
 }
 h2 {
-  font-size: 35px;
+  font-size: 30px;
   font-weight: 300;
   margin-bottom: 25px;
 }
 p {
   font-size: 18px;
+  font-weight: 500;
   margin: 0;
 }
 img {
@@ -90,10 +95,11 @@ button.ap-active:hover {
   transform: scale(1.1);
 }
 bold {
+  color: var(--swiss-air-red);
   font-weight: bolder;
 }
 footer {
-  background-color: #f1f1f1;
+  background-color: #f1f1f199;
   border-top: 2px solid #ddd;
   padding: 70px 0;
 }
@@ -108,9 +114,9 @@ footer {
 }
 .ap-upload-file-label {
   background-color: #fff;
-  border: 2px solid var(--light-gray);
+  border: 3px solid var(--swiss-air-red);
   border-radius: 20px;
-  color: var(--dark-gray);
+  color: var(--main-black);
   content: "Upload Image";
   cursor: pointer;
   display: inline-block;
@@ -130,18 +136,18 @@ footer {
   transform: scale(1.1);
 }
 .ap-upload-file-label.ap-active {
-  background-color: var(--dark-gray);
-  border: 2px solid #0000;
+  background-color: var(--light-red);
+  border: 3px solid var(--swiss-air-red);
   color: #fff;
 }
 .ap-start-process-btn {
   background-color: #fff;
-  border: 2px solid var(--light-gray);
-  color: var(--dark-gray);
+  border: 3px solid var(--swiss-air-red);
+  color: var(--main-black);
 }
 .ap-start-process-btn.ap-active {
-  background-color: var(--dark-gray);
-  border: 2px solid #0000;
+  background-color: var(--light-red);
+  border: 3px solid var(--swiss-air-red);
   color: #fff;
 }
 .ap-output-box {
@@ -208,6 +214,7 @@ footer {
 }
 .ap-output-image-information p {
   font-size: 25px;
+  font-weight: 400;
 }
 .ap-output-image-information svg {
   cursor: pointer;
@@ -217,8 +224,13 @@ footer {
 .ap-output-image-information svg:hover {
   transform: scale(1.1);
 }
-.ap-footer-icon img {
+.ap-footer-icon svg {
+  fill: var(--light-red);
+  transition: .3s ease-out;
   width: 45px;
+}
+.ap-footer-icon svg:hover {
+  fill: var(--swiss-air-red);
 }
 @media only screen and (max-width: 1200px) {
   .ap-output-box {

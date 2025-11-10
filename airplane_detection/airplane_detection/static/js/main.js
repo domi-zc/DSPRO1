@@ -3,6 +3,12 @@ let ticking = false;
 let scrollPositionPixel;
 let scrollPositionPercentage;
 
+let yValue;
+let rotationValue;
+let progress;
+let progress_transform_y;
+let progress_rotate;
+
 let windowHeight = window.innerHeight;
 let fullContentHeight = document.documentElement.scrollHeight;
 
@@ -20,12 +26,51 @@ window.addEventListener("scroll", function (e) {
     (scrollPositionPixel / (fullContentHeight - windowHeight)) * 100
   );
 
+  // Airplane animation transformY() and rotate()
+  if (scrollPositionPercentage <= 15) {
+    yValue = -35;
+    rotationValue = 0;
+  } else if (scrollPositionPercentage <= 30) {
+    progress = (scrollPositionPercentage - 15) / 15;
+    yValue = -35 - (45 * progress);
+    rotationValue = -20 * progress;
+  } else if (scrollPositionPercentage <= 45) {
+    progress = (scrollPositionPercentage - 30) / 15;
+    yValue = -80; // Hält -80
+    rotationValue = -20 + 20 * progress;
+  } else if (scrollPositionPercentage <= 55) {
+    yValue = -80; // Hält -80
+    rotationValue = 0;
+  } else if (scrollPositionPercentage <= 80) {
+    progress_transform_y = (scrollPositionPercentage - 55) / 35;
+    yValue = -80 + (45 * progress_transform_y);
+
+    progress_rotate = (scrollPositionPercentage - 55) / 25;
+    rotationValue = 20 * progress_rotate;
+  } else if (scrollPositionPercentage <= 90) {
+    progress_transform_y = (scrollPositionPercentage - 55) / 35;
+    yValue = -80 + (45 * progress_transform_y);
+
+    progress_rotate = (scrollPositionPercentage - 80) / 10;
+    rotationValue = 20 - 20 * progress_rotate;
+  } else {
+    // 90-100
+    yValue = -35;
+    rotationValue = 0;
+  }
+
   if (!ticking) {
     window.requestAnimationFrame(function () {
       document.getElementById("ap-header-logo").style.left =
         scrollPositionPercentage + "%";
       document.getElementById("ap-header-logo").style.transform =
-        "translateX(-" + scrollPositionPercentage + "%) translateY(-50%)";
+        "translateX(-" +
+        scrollPositionPercentage +
+        "%) translateY(" +
+        yValue +
+        "%) rotate(" +
+        rotationValue +
+        "deg)";
       ticking = false;
     });
     ticking = true;
@@ -45,6 +90,8 @@ window.addEventListener("load", () => {
   if (w > 0 && h > 0) {
     cmp.style.aspectRatio = `${w} / ${h}`;
   }
+  windowHeight = window.innerHeight;
+  fullContentHeight = document.documentElement.scrollHeight;
 });
 
 // Button "Start Process" Enablen und "ap-active" Klassen den Buttons zuweisen oder nehmen //
@@ -67,7 +114,7 @@ document.addEventListener("DOMContentLoaded", function () {
   enableIfFileSelected();
 
   input.addEventListener("change", enableIfFileSelected);
-  input.addEventListener("input",  enableIfFileSelected);
+  input.addEventListener("input", enableIfFileSelected);
 });
 
 // Image-Comparison Slider Slide Animation //
