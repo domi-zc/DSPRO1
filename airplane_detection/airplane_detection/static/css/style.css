@@ -165,6 +165,9 @@ footer {
   max-height: calc(80vh - 80px);
   position: relative;
   user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  -webkit-user-select: none;
 }
 .ap-compare-image img {
   height: 100%;
