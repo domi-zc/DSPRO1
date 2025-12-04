@@ -11,7 +11,7 @@ Es dient als **One-Pager**, um Bilder hochzuladen, zu verarbeiten und direkt wie
 
 ### Anforderungen
 - **Python 3.13.0** (empfohlen über [pyenv](https://github.com/pyenv/pyenv))
-- **Django 5.2.7**
+- **Django 5.2.8**
 
 ---
 
