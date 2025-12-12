@@ -1,16 +1,16 @@
 # DSPRO1
-Data Science Projekt I
+Data Science Project I
 
 ## Frontend
 
-Ein schlankes Django-Projekt ohne Datenbank.  
-Es dient als **One-Pager**, um Bilder hochzuladen, zu verarbeiten und direkt wieder anzuzeigen.
-**Nichts wird gespeichert.**
+A lightweight Django project without a database.
+It serves as a **one-pager** to upload, process, and immediately display images.
+**Nothing is stored.**
 
 ---
 
-### Anforderungen
-- **Python 3.13.0** (empfohlen über [pyenv](https://github.com/pyenv/pyenv))
+### Requirements
+- **Python 3.13.0** (recommended via [pyenv](https://github.com/pyenv/pyenv))
 - **Django 5.2.8**
 
 ---
@@ -20,22 +20,22 @@ Es dient als **One-Pager**, um Bilder hochzuladen, zu verarbeiten und direkt wie
 #### Linux & macOS
 
 ```bash
-# pyenv verwenden
+# Use pyenv
 pyenv install -s 3.13.0
 pyenv local 3.13.0
 
-# Version prüfen
-python -V  # sollte "Python 3.13.0" anzeigen
+# Check version
+python -V  # should display "Python 3.13.0"
 
-# Virtuelle Umgebung anlegen & aktivieren
-python -m venv dspro1_env
-source dspro1_env/bin/activate
+# Create & activate virtual environment
+python -m venv .dspro1_env
+source .dspro1_env/bin/activate
 
-# Dependencies installieren
+# Install dependencies
 python -m pip install --upgrade pip
 pip install -r requirements.txt
 
-# Server starten
+# Start server
 python airplane_detection/manage.py runserver
 ```
 
@@ -44,26 +44,24 @@ python airplane_detection/manage.py runserver
 #### Windows (PowerShell)
 
 ```bash
-# Stelle sicher, dass Python 3.13.0 installiert ist
-# (manuell von https://www.python.org/downloads/ herunterladen und installieren)
+# Ensure Python 3.13.0 is installed
+# (download and install manually from [https://www.python.org/downloads/](https://www.python.org/downloads/))
 
-# (optional mit pyenv-win)
+# (optionally with pyenv-win)
 # pyenv install 3.13.0
 # pyenv local 3.13.0
 
-# Python-Version prüfen
-python -V  # sollte "Python 3.13.0" anzeigen
+# Check Python version
+python -V  # should display "Python 3.13.0"
 
-# Virtuelle Umgebung erstellen
-python -m venv dspro1_env
+# Create & activate virtual environment
+python -m venv .dspro1_env
+.\.dspro1_env\Scripts\Activate.ps1
 
-# Aktivieren
-.\dspro1_env\Scripts\Activate.ps1
-
-# Abhängigkeiten installieren
+# Install dependencies
 python -m pip install --upgrade pip
 pip install -r requirements.txt
 
-# Server starten
+# Start server
 python airplane_detection\manage.py runserver
 ```
