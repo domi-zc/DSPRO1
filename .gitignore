@@ -28,3 +28,6 @@ runs/
 
 # Models
 *.pt
+
+# Custom models
+checkpoints_custom_model/*
