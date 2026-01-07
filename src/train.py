@@ -150,7 +150,6 @@ def main() -> None:
         name="train",
         exist_ok=True,
         device=device,
-        nms_time_limit=10.0,
     )
 
     print(f"Run saved in: {run_dir}")
