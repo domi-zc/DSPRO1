@@ -27,7 +27,7 @@ dataset/
 runs/
 
 # Models
-*.pt
+#*.pt
 
 # Custom models
 checkpoints_custom_model/*
