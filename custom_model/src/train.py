@@ -15,8 +15,8 @@ WEIGHT_DECAY = 5e-4
 WORKERS = 0
 SEED = 42
 
-RUNS_ROOT = Path("./runs")
-MODEL_YAML = Path("./models/yolo_plane_tiny.yaml")
+RUNS_ROOT = Path("./custom_model/runs")
+MODEL_YAML = Path("./custom_model/architecture/yolo_plane_tiny.yaml")
 
 def find_dataset_root(start: Path | None = None) -> Path:
     """
