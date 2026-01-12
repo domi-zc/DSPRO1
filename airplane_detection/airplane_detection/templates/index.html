@@ -128,7 +128,7 @@
           </div>
 
           <div class="col-12 col-xl-6 mt-xl-0 mt-4 align-self-center">
-            <video autoplay loop muted>
+            <video title="Preview of what to expect when uploading your own image" autoplay loop muted>
               <source
                 src="{% static 'video/illustration.mp4' %}"
                 type="video/mp4"
@@ -146,9 +146,9 @@
         <div class="ap-output-image-comparison">
           <div class="ap-compare-image" id="ap-compare-image">
             <!-- BACK image = bearbeitet -->
-            <img src="{{ back_image_url }}" alt="Processed Image" />
+            <img src="{{ back_image_url }}" alt="Processed Image" title="Processed Image" />
             <!-- FRONT image = original -->
-            <img src="{{ front_image_url }}" alt="Original Image" />
+            <img src="{{ front_image_url }}" alt="Original Image" title="Original Image" />
             <div class="ap-compare-image-slider"></div>
           </div>
         </div>
