@@ -145,8 +145,6 @@ document.addEventListener("DOMContentLoaded", function () {
 })();
 
 // Scroll-Up Button click //
-initScrollUp();
-
 function initScrollUp() {
   const el = document.getElementById("ap-scroll-up");
   if (!el) return;
@@ -155,3 +153,63 @@ function initScrollUp() {
     window.scrollTo({ top: 0, behavior: "smooth" });
   });
 }
+initScrollUp();
+
+// File Size Validation //
+let max_size = 50;
+let max_size_bytes = max_size * 1_000_000;
+
+function initFileSizeValidation() {
+  const input = document.getElementById("ap-image-upload");
+  const btn = document.getElementById("ap-process-btn");
+  const label = document.getElementById("ap-image-upload-label");
+
+  if (!input) return;
+
+  input.addEventListener("change", function () {
+    if (this.files && this.files.length > 0) {
+      const fileSize = this.files[0].size;
+
+      if (fileSize > max_size_bytes) {
+        
+        // Error Message Element erstellen
+        const msg = document.createElement("div");
+        msg.classList.add("ap-upload-error-message");
+        msg.innerHTML = `
+        <div>
+          The file is too large. Please upload an image smaller than <strong>${max_size}MB</strong>.
+          <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M6 6L18 18" stroke-width="2" stroke-linecap="round"/>
+            <path d="M18 6L6 18" stroke-width="2" stroke-linecap="round"/>
+          </svg>
+        </div>`;
+        this.parentNode.appendChild(msg);
+        document.documentElement.classList.add("ap-no-scroll");
+
+        this.value = ""; // Remove selected file
+
+        const closeMessage = () => {
+          msg.remove();
+          document.documentElement.classList.remove("ap-no-scroll");
+        };
+
+        // Nach 3 Sekunden oder ...
+        setTimeout(() => {
+          closeMessage();
+        }, 5000);
+        // ... bei einem Klick oder Touch entfernen
+        const closeIcon = msg.querySelector("svg");
+        closeIcon.addEventListener("click", closeMessage);
+        closeIcon.addEventListener("touchstart", closeMessage);
+
+
+        // Reset UI: activate "Upload Image" and deactivate "Start Process" Button
+        btn.disabled = true;
+        btn.setAttribute("aria-disabled", "true");
+        btn.classList.remove("ap-active");
+        label.classList.add("ap-active");
+      }
+    }
+  });
+}
+initFileSizeValidation();

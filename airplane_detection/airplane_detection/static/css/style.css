@@ -8,6 +8,9 @@
 html {
   scrollbar-width: none;
 }
+html.ap-no-scroll {
+  overflow: hidden;
+}
 /* IE and Edge */
 body {
   -ms-overflow-style: none;
@@ -139,6 +142,46 @@ footer {
   background-color: var(--light-red);
   border: 3px solid var(--swiss-air-red);
   color: #fff;
+}
+.ap-upload-error-message {
+  backdrop-filter: blur(2.1px);
+  background: #f1f1f199;
+  height: 100vh;
+  left: 0;
+  position: fixed;
+  top: 0;
+  width: 100vw;
+  z-index: 999;
+}
+.ap-upload-error-message > div {
+  background-color: #f7f7f7;
+  border: 3px solid var(--light-red);
+  border-radius: 20px;
+  box-shadow: 4px 4px 4px 0 var(--light-gray);
+  font-size: 25px;
+  left: 50%;
+  max-width: 600px;
+  padding: 50px 20px;
+  position: absolute;
+  text-align: center;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: calc(81% - 24px);
+}
+.ap-upload-error-message svg {
+  cursor: pointer;
+  height: 40px;
+  margin: 5px 5px 0 0;
+  position: absolute;
+  right: 0;
+  stroke: var(--light-red);
+  top: 0;
+  transition: .3s ease-out;
+  width: 40px;
+}
+.ap-upload-error-message svg:hover {
+  stroke: var(--swiss-air-red);
+  transform: scale(1.05);
 }
 .ap-start-process-btn {
   background-color: #fff;
