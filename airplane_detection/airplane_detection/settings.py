@@ -4,7 +4,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = "change-me"
 DEBUG = True
 # Ausserhalb der Django-App mit "BASE_DIR.parent"
-MODEL_PATH = (BASE_DIR.parent / "model" / "first-model.pt").resolve()
+MODEL_PATH = (BASE_DIR.parent / "results" / "fine_tuned_best.pt").resolve()
 
 ALLOWED_HOSTS = []
 
