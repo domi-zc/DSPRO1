@@ -97,7 +97,7 @@ button.ap-active:hover {
   box-shadow: 4px 4px 4px 0 var(--light-gray);
   transform: scale(1.1);
 }
-bold {
+strong {
   color: var(--swiss-air-red);
   font-weight: bolder;
 }
