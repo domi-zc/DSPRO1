@@ -8,13 +8,10 @@ function initLoadingScreenTrigger() {
 
     if (!form || !loadingScreen) return;
 
-    // Startet erst, wenn das Formular abgeschickt wird
+    // Damit sind alle Punkte bereits erstellt, wenn der User klickt.
+    startGsapAnimation(loadingScreen);
+
     form.addEventListener("submit", function(e) {
-
-        // Animation starten
-        startGsapAnimation(loadingScreen);
-
-        // Screen sichtbar machen
         loadingScreen.classList.add("active");
 
         // Scrollen verbieten
@@ -46,17 +43,16 @@ function startGsapAnimation(loadingScreen) {
     const numDots = 30;
     const loopDuration = 2.5;
 
-    // Container leeren
+    // Container leeren & Punkte erstellen
     mainContainer.innerHTML = "";
 
-    // Punkte erstellen
     for (let i = 0; i < numDots; i++) {
         const angle = (360 / numDots) * i;
         const x = centerX + Math.cos((angle * Math.PI) / 180) * radius;
         const y = centerY + Math.sin((angle * Math.PI) / 180) * radius;
 
         const newDot = dotTemplate.cloneNode(true);
-        
+
         newDot.setAttribute("cx", x);
         newDot.setAttribute("cy", y);
         newDot.setAttribute("r", 0);
@@ -103,7 +99,7 @@ function startGsapAnimation(loadingScreen) {
         transformOrigin: "center center"
     });
 
-    // Flugzeug Rotation
+    // Flugzeug Rotation starten
     gsap.to(planeGroup, {
         rotation: 360,
         duration: loopDuration,
