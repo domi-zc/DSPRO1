@@ -300,6 +300,29 @@ footer {
 .ap-footer-icon svg:hover {
   fill: var(--swiss-air-red);
 }
+#ap-loading-screen {
+  align-items: center;
+  background-color: #FF8385;
+  display: none;
+  flex-direction: column;
+  height: 100%;
+  justify-content: center;
+  left: 0;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 9999;
+}
+#ap-loading-screen.active {
+  display: flex;
+}
+#ap-loading-screen svg {
+  height: auto;
+  max-height: 600px;
+  max-width: 800px;
+  visibility: hidden;
+  width: 100%;
+}
 @media only screen and (max-width: 1200px) {
   .ap-output-box {
     margin: 0;
