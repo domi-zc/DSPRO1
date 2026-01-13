@@ -11,7 +11,7 @@ It serves as a **one-pager** to upload, process, and immediately display images.
 
 ### Requirements
 - **Python 3.13.0** (recommended via [pyenv](https://github.com/pyenv/pyenv))
-- **Django 5.2.8**
+- **Django 5.2.9**
 
 ---
 
